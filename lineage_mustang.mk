@@ -24,6 +24,31 @@ TARGET_SCREEN_HEIGHT := 2992
 TARGET_SCREEN_WIDTH := 1344
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="Google Tensor G5" \
+    RisingMaintainer="EliteDarkKaiser"
+
+RISING_VERSION := 9
+
+# Disable/enable blur support, false by default
+TARGET_ENABLE_BLUR := true
+
+# Whether to ship aperture camera, false by default
+PRODUCT_NO_CAMERA := true
+
+# GMS build flags, true by default
+# Ship with GMS packages, replaces default AOSP packages with Google manufactured packages.
+WITH_GMS := true
+
+# Addons
+TARGET_HAS_UDFPS := true
+TARGET_PREBUILT_BCR := true
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+
+# Enables Google Face Unlock (GFU)
+TARGET_SUPPORTS_GFU := true
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="mustang-user 17 CP2A.260805.005 15828068 release-keys" \
     BuildFingerprint=google/mustang/mustang:17/CP2A.260805.005/15828068:user/release-keys \
     BuildSystemFingerprint=google/generic_system_google/generic:17/CP2A.260805.005/15828068:user/release-keys \
