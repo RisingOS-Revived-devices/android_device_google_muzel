@@ -41,8 +41,13 @@ TARGET_HAS_UDFPS := true
 TARGET_PREBUILT_BCR := true
 
 # Launcher Flags
+TARGET_DEFAULT_PIXEL_LAUNCHER := false
+
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.sys.default_launcher=0 \
+    persist.sys.quickswitch_pixel_shipped=1
+
 TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
-TARGET_DEFAULT_PIXEL_LAUNCHER := true
 
 # Enables Google Face Unlock (GFU)
 TARGET_SUPPORTS_GFU := true
