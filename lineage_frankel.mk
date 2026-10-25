@@ -54,9 +54,10 @@ TARGET_SUPPORTS_GFU := true
 PRODUCT_BUILD_PROP_OVERRIDES += \
     RisingChipset="Google Tensor G5" \
     RisingMaintainer="EliteDarkKaiser" \
-    BuildDesc="frankel-user 17 CP2A.260805.005 15828068 release-keys" \
-    BuildFingerprint=google/frankel/frankel:17/CP2A.260805.005/15828068:user/release-keys \
-    BuildSystemFingerprint=google/generic_system_google/generic:17/CP2A.260805.005/15828068:user/release-keys \
+    BuildDesc="frankel-user 17 CP3A.261005.005 16271449 release-keys" \
+    BuildSystemDesc=generic_system_google-user 17 CP3A.261005.005 16271449 release-keys \
+    BuildFingerprint=google/frankel/frankel:17/CP3A.261005.005/16271449:user/release-keys \
+    BuildSystemFingerprint=google/generic_system_google/generic:17/CP3A.261005.005/16271449:user/release-keys \
     DeviceProduct=$(DEVICE_CODENAME)
 
 $(call inherit-product, $(VENDOR_PATH)/$(DEVICE_CODENAME)-vendor.mk)

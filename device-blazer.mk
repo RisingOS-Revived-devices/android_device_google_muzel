@@ -18,6 +18,10 @@ endif
 # Inherit from laguna
 include device/google/laguna/common.mk
 
+# Audio
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/config/default_volume_tables.xml
+
 # Overlays
 PRODUCT_PACKAGES += \
     FrameworkResOverlayProductMuzel \
@@ -33,8 +37,7 @@ PRODUCT_PACKAGES += \
     FrameworkResOverlayVendorBlazer \
     PixelDisplayServiceOverlayProductBlazer \
     PixelNfcOverlayBlazer \
-    PixelUwbOverlayMT5Muzel \
-    PixelUwbOverlayRG5Laguna \
+    PixelUwbOverlayRG5 \
     PixelWifiOverlay2025Blazer \
     SettingsBlazerOverlay \
     SystemUIGoogleOverlayVendorBlazer
@@ -44,6 +47,14 @@ PRODUCT_PACKAGES += \
 
 # PowerShare
 include hardware/google/pixel/powershare/device.mk
+
+# Preinstalled packages
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/sysconfig/preinstalled-packages-prebuilt-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-prebuilt-product.xml \
+    $(DEVICE_PATH)/sysconfig/preinstalled-packages-prebuilt-system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/preinstalled-packages-prebuilt-system_ext.xml
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/sysconfig/preinstalled-packages-prebuilt-thermometer-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-prebuilt-thermometer-product.xml
 
 # Properties
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/$(DEVICE_CODENAME)/product.prop
@@ -75,6 +86,3 @@ $(call soong_config_set,threadnetwork_apex,init_rc_namespace,device/google/muzel
 # VINTF
 DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE += \
     $(DEVICE_PATH)/vintf/device_framework_matrix_product.xml
-
-# Window extensions
-$(call inherit-product, $(SRC_TARGET_DIR)/product/window_extensions.mk)
